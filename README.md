@@ -46,3 +46,12 @@
       - ReactDOM.findDOMNode() convert component into the actual HTML that it's rendered to browser
       */
     ```
+  ### Clip 73 - Testing component with Spies (from expect lib)
+    > spy is function that is created by expect library. it's used to assert when or not a function is called
+
+    ```javascript
+      var spy = expect.createSpy();
+      //...
+      expect(spy).toHaveBeenCalledWith(109);
+      expect(spy).toNotHaveBeenCalled();
+    ```
