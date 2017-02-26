@@ -22,4 +22,27 @@
 
 ### Clip 69. Adding routes container components
   - add two new files: countdown.jsx and timer.jsx
-  - using route modules to link modules
+  - using route modules to link module
+  > need to learn more about route modules: RouteIndex, IndexLink, active-link
+
+### Clip 70 + 71: Clock component
+  - create new module Clock (Clock.jsx)
+  - create new test file for Clock module (test/components/Clock.test.jsx): goal is should return string
+  - install react-addons-test-utils modules for testing, then declare test case in Clock.test.jsx file mentioned above
+  - in Clock.test.jsx: loading components for testing
+    ```javascript
+      var clock = TestUtils.renderIntoDocument(<Clock/>)
+      // render Clock component so we can call formatSeconds() as a standard function like below
+      var actual = clock.formatSeconds(seconds);      
+    ```
+
+  - (clip 71) Document of Testing componenet is definitely lacking, so author needs a lot of hours to find this:
+    ```javascript
+      var clock = TestUtils.renderIntoDocument(<Clock totalSeconds={62}/>);
+      var $el = $(ReactDOM.findDOMNode(clock));
+      /*
+      allow accessing to html element using jQuery syntax in jsx
+      - $el will store the root of component in term of the DOM
+      - ReactDOM.findDOMNode() convert component into the actual HTML that it's rendered to browser
+      */
+    ```

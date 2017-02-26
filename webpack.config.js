@@ -29,6 +29,7 @@ module.exports = {
 			Nav: 'app/components/Nav.jsx',
 			Timer: 'app/components/Timer.jsx',
 			Countdown: 'app/components/Countdown.jsx',
+			Clock: 'app/components/Clock.jsx',
 			applicationStyles: 'app/styles/app.scss'
 		},
 		extensions: ['', '.js', '.jsx']//return extension of file we want to execute
