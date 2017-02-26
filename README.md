@@ -1,10 +1,11 @@
-My React Timer App
+# Section 8 - Testing Component Lifecycle
+## My React Timer App
 - create _navigation.scss in app/styles/components
 - create _variable.scss in app/styles/base that contains all scss variables for app
   > (underscore) means the file is just a part, scss should load it with another file_
 
-### 5. Configuring Tests with Webpack in React
-  > GOAL: from ternimal run: npm test
+### Clip 68. Configuring Tests with Webpack in React
+  > GOAL: from terminal run: npm test
 
   - install modules (7, 8, modules) ( --save-dev)
     + karma@0.13.22 //test runner
@@ -18,3 +19,7 @@ My React Timer App
 
   - create new file in root: karma.conf.js to configure karma. This is configure file for karma
   - run first test in app/tests/app.test.jsx
+
+### Clip 69. Adding routes container components
+  - add two new files: countdown.jsx and timer.jsx
+  - using route modules to link modules
