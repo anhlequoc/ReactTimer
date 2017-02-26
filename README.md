@@ -46,7 +46,8 @@
       - ReactDOM.findDOMNode() convert component into the actual HTML that it's rendered to browser
       */
     ```
-  ### Clip 73 - Testing component with Spies (from expect lib)
+
+### Clip 73 - Testing component with Spies (from expect lib)
     > spy is function that is created by expect library. it's used to assert when or not a function is called
 
     ```javascript
@@ -55,3 +56,8 @@
       expect(spy).toHaveBeenCalledWith(109);
       expect(spy).toNotHaveBeenCalled();
     ```
+### Clip 74 - Starting the count down
+  - create new state in Countdown.jsx, named countdownStatus (has 2 status: stopped and started)
+  - in order to listen when "countdownStatus" state change from "stopped" to "started" or "paused" and vice versa, use a built-in function of react - componentDidUpdate(prevProps, prevState)
+  - use switch - case in this componentDidUpdate to call corresponding function with each status
+    +status is started: call function setTimer() in interval of 1000 ms. note that only reduce the count state to 0, it should not be negative number
