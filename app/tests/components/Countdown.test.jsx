@@ -16,6 +16,7 @@ describe('Countdown', () => {
       {/* steps: render the component and call handleSetCountdown() then make assertion */}
       var countdown = TestUtils.renderIntoDocument(<Countdown />);
       {/*countdown lúc này là 1 object của compoenent <Countdown /> luôn, có đầy đủ các attribute, function của component này, dùng để test*/}
+      //console.log(countdown);
       countdown.handleSetCountdown(10); {/*pass number of seconds to test*/}
       expect(countdown.state.count).toBe(10);
       expect(countdown.state.countdownStatus).toBe('started');
