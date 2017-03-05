@@ -42,5 +42,30 @@ describe('Countdown', () => {
         done();
       }, 3000);
     });
+
+    it('shoult pause countdown on Pause status', (done) => {
+      var countdown = TestUtils.renderIntoDocument(<Countdown />);
+      countdown.handleSetCountdown(3);
+      countdown.handleStatusChange('paused');
+
+      setInterval( () => {
+        expect(countdown.state.count).toBe(3);
+        expect(countdown.state.countdownStatus).toBe('paused');
+        done(); {/*goi done() để check callback khi dùng interval*/}
+      }, 1001);
+    });
+
+    it('shoult stop countdown on Stop status', (done) => {
+      var countdown = TestUtils.renderIntoDocument(<Countdown />);
+      countdown.handleSetCountdown(3);
+      countdown.handleStatusChange('stopped');
+
+      setInterval( () => {
+        expect(countdown.state.count).toBe(0);
+        expect(countdown.state.countdownStatus).toBe('stopped');
+        done(); {/*goi done() để check callback khi dùng interval*/}
+      }, 1001);
+    });
+
   });
 });
