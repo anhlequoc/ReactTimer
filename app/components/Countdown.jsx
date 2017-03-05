@@ -25,12 +25,29 @@ var Countdown = React.createClass({
       }
     }
   },
+  componentWillUpdate: function(nextProps, nextState) {
+    {/*chay trước componentdidUpdate để kiểm tra....*/}
+  },
+  componentWillMount: function() {
+    console.log('componentWillMount'); {/*khi React mount vào component này*/}
+  },
+  componentDidMount: function() {
+    console.log('componentDidMount');
+  },
+  componentWillUnmount: function() {
+    console.log('componentDidUnmount'); {/*khi switch sang timer.jsx*/}
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
   startTimer: function() {
     this.timer = setInterval( () => {
       var newCount = this.state.count - 1;
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
+      if (newCount === 0) {
+        this.setState({countdownStatus: 'stopped'});
+      }
     }, 1000);
   },
   handleSetCountdown: function(seconds){
