@@ -19,8 +19,9 @@ var Countdown = React.createClass({
         case "stopped":
           this.setState({count: 0}); {/*không dùng break để chạy tiếp code ở case dưới*/}
         case "paused":
+          console.log(this.timer);
           clearInterval(this.timer);
-          this.timer = undefined;
+          this.timer = null; //null or undefined?
           break;
       }
     }
@@ -37,7 +38,7 @@ var Countdown = React.createClass({
   componentWillUnmount: function() {
     console.log('componentDidUnmount'); {/*khi switch sang timer.jsx*/}
     clearInterval(this.timer);
-    this.timer = undefined;
+    this.timer = null; //null or undefined?
   },
   startTimer: function() {
     this.timer = setInterval( () => {
