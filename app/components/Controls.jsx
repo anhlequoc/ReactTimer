@@ -19,24 +19,43 @@ var Controls = React.createClass({
   },
   render: function() {
     var {countdownStatus, timerStatus} = this.props;
-    var renderStartStopButton = () => {
+    var renderStartStopClearButton = () => {
       if (countdownStatus === 'started') {
-        return <button className="button secondary" onClick={this.onStatusChange('paused')}>Pause</button>;
-      } else if (countdownStatus === 'paused'){
-        return <button className="button primary" onClick={this.onStatusChange('started')}>Start</button>;
+        return (
+          <div>
+            <button className="button secondary" onClick={this.onStatusChange('paused')}>Pause</button>
+            <button className="button alert hollow" onClick={this.onStatusChange('stopped')}>Clear</button>
+          </div>
+        );
+
+      } else if (countdownStatus === 'stopped'){
+        return (
+          <div>
+            <button className="button primary" onClick={this.onStatusChange('started')}>Start</button>
+            <button className="button alert hollow" onClick={this.onStatusChange('stopped')}>Clear</button>
+          </div>
+        );
       }
 
       if(timerStatus === 'started') {
-        return <button className="button secondary" onClick={this.onTimerStatusChange('stopped')}>Stop</button>;
-      } else if (timerStatus === 'stopped') {
-        return <button className="button secondary" onClick={this.onTimerStatusChange('started')}>Start</button>;
+        return (
+          <div>
+            <button className="button secondary" onClick={this.onTimerStatusChange('paused')}>Pause</button>
+            <button className="button alert hollow" onClick={this.onTimerStatusChange('stopped')}>Clear</button>
+          </div>
+        );
+      } else if (timerStatus === 'stopped' || timerStatus === 'paused') {
+        return (
+          <div>
+            <button className="button secondary" onClick={this.onTimerStatusChange('started')}>Start</button>
+            <button className="button alert hollow" onClick={this.onTimerStatusChange('stopped')}>Clear</button>
+          </div>
+        );
       }
     };
-
     return (
       <div className="controls">
-        {renderStartStopButton()}
-        <button className="button alert hollow" onClick={this.onStatusChange('stopped')}>Clear</button>
+        {renderStartStopClearButton()}
       </div>
     );
   }
