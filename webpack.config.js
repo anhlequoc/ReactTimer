@@ -50,7 +50,7 @@ module.exports = {
 			}
 		]
 	},
-	sassLoader: {
+	sassLoader: { //clip 083
 		includePaths: [
 			path.resolve(__dirname, './node_modules/foundation-sites/scss')
 		]
